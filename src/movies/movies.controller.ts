@@ -6,12 +6,12 @@ export class MoviesController {
 
     @Get()
     gettAll(){
-        return "This will return all movies";
+        return "This will return all movies.";
     }
 
     @Get("/:id")
     getOne(@Param("id") movieId: string){
-        return `This will return one Movie with the id: ${movieId}`;
+        return `This will return one Movie with the id: ${movieId}.`;
     }
 
     @Post()
@@ -21,12 +21,12 @@ export class MoviesController {
 
     @Delete("/:id")
     remove(@Param('id') movieId:string){
-        return `This will delete a movie with the id:${movieId}`
+        return `This will delete a movie with the id:${movieId}.`;
     }
 
     @Patch('/:id')
     Patch(@Param('id') movieId:string){
-        return `This will patch a movie with the id:${movieId}`;
+        return `This will patch a movie with the id:${movieId}.`;
     }
 
 
