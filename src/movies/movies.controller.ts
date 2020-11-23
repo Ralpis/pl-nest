@@ -1,6 +1,7 @@
 import { Body, Controller, Delete, Get, Param, Patch, Post, Put, Query } from '@nestjs/common';
 import { SSL_OP_NETSCAPE_REUSE_CIPHER_CHANGE_BUG } from 'constants';
 import { get } from 'http';
+import { CreateMovieDto } from './DTO/create-movie.dto';
 import { Movie } from './entities/movie.entity';
 import { MoviesService } from './movies.service';
 
@@ -22,7 +23,7 @@ export class MoviesController {
     }
 
     @Post()
-    create(@Body() movieData){
+    create(@Body() movieData:CreateMovieDto){
         return this.moviesService.create(movieData);
     }
 
