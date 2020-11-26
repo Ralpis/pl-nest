@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, Param, Patch, Post, Put, Query } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Patch, Post, Put, Query, } from '@nestjs/common';
 import { SSL_OP_NETSCAPE_REUSE_CIPHER_CHANGE_BUG } from 'constants';
 import { get } from 'http';
 import { CreateMovieDto } from './DTO/create-movie.dto';
@@ -18,7 +18,8 @@ export class MoviesController {
     }
 
     @Get("/:id")
-    getOne(@Param('id') movieId: string):Movie{
+    getOne(@Param('id') movieId: number):Movie{
+        console.log(typeof movieId);
         return this.moviesService.getOne(movieId);
     }
 
@@ -28,12 +29,12 @@ export class MoviesController {
     }
 
     @Delete("/:id")
-    remove(@Param('id') movieId:string){
+    remove(@Param('id') movieId:number){
         return this.moviesService.deleteOne(movieId);
     }
 
     @Patch("/:id")
-    Patch(@Param('id') movieId:string, @Body() updateData){
+    Patch(@Param('id') movieId:number, @Body() updateData){
         return this.moviesService.update(movieId, updateData);
     }
 
