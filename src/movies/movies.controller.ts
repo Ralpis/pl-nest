@@ -2,6 +2,7 @@ import { Body, Controller, Delete, Get, Param, Patch, Post, Put, Query, } from '
 import { SSL_OP_NETSCAPE_REUSE_CIPHER_CHANGE_BUG } from 'constants';
 import { get } from 'http';
 import { CreateMovieDto } from './DTO/create-movie.dto';
+import { UpdateMovieDto } from './DTO/update-movie';
 import { Movie } from './entities/movie.entity';
 import { MoviesService } from './movies.service';
 
@@ -34,7 +35,7 @@ export class MoviesController {
     }
 
     @Patch("/:id")
-    Patch(@Param('id') movieId:number, @Body() updateData){
+    Patch(@Param('id') movieId:number, @Body() updateData:UpdateMovieDto){
         return this.moviesService.update(movieId, updateData);
     }
 
