@@ -99,7 +99,7 @@ describe('MoviesService', () => {
       expect(movie.title).toEqual('Updated Test');
 
     });
-    it('shoud throw 404 error', () => {
+    it('shoud throw a new NotFoundException', () => {
       try {
         service.update(999,{});
       } catch (e) {
