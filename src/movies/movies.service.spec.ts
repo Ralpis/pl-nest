@@ -26,8 +26,6 @@ describe("getAll", ()=>{
 });
 
 describe('getOne', () => {
-  
-
   it("shoud return a movie",()=>{
     service.create({
       title:'Test Movie',
@@ -47,6 +45,22 @@ describe('getOne', () => {
       expect(e).toBeInstanceOf(NotFoundException);
       expect(e.message).toEqual('Movie with Id 999 not found.');
     }
+  })
+
+});
+describe('deleteOne', ()=>{
+
+  it("deletes a movie",()=>{
+    service.create({
+      title:'Test Movie',
+      genres:['test'],
+      year: 2000,
+    });
+    const beforeDelete = service.getAll().length;
+    service.deleteOne(1);
+    const afterDelete = service.getAll().length;
+    expect(afterDelete).toBeLessThan(beforeDelete);
+
   })
 
 });
